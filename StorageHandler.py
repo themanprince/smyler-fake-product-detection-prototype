@@ -7,7 +7,8 @@ class StorageHandler:
     
     def exists_in_store(self, id):
         items_with_id = [item for item in self.__store if item["id"] == id]
-        
+        print(f"id to search for is {id}")
+        print(f"self.__store is {self.__store}")
         return len(items_with_id) > 0
     
     def find_in_store(self, id):
