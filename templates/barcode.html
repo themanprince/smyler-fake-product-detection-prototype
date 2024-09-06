@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas id="qr"></canvas>
+
+    <script src="/static/qrious.min.js"></script>
+    <script>
+    {% raw %}
+      (function() {
+        var qr = new QRious({
+          element: document.getElementById('qr'),
+    {% endraw %} 
+          value: {link}
+     {%raw%}
+        });
+      })();
+     {% endraw %}
+    </script>
+    <script src="static/eruda.js"></script>
+    <script>
+        eruda.init();
+    </script>  
+  </body>
+</html>
