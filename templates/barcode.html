@@ -3,14 +3,14 @@
   <body>
     <canvas id="qr"></canvas>
 
-    <script src="/static/qrious.min.js"></script>
+    <script src="/static/node_modules/qrious/dist/qrious.min.js"></script>
     <script>
     {% raw %}
       (function() {
         var qr = new QRious({
           element: document.getElementById('qr'),
     {% endraw %} 
-          value: {link}
+          value: "{{link}}"
      {%raw%}
         });
       })();
