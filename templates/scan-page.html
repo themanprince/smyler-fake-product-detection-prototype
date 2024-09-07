@@ -16,13 +16,12 @@
             
             const html5Qrcode = new Html5Qrcode("reader");
             const successCallback = (text, result) => {
-                console.log("text and result are", text, result);
                 html5Qrcode.stop();
                 window.location.href = `/verify?id=${text}`;
             }
-            const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+            const config = { fps: 10, qrbox: { width: 500, height: 500 } };
             
-            html5Qrcode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+            html5Qrcode.start({ facingMode: "environment" }, config, successCallback);
 
          </script>
     </body>
