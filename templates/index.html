@@ -41,22 +41,26 @@
                 <a href="#form" class="ctaa">Place an Order</a>
             </div>
             <div class="hero-form">
-                <div id="form">
+                <form action="/process-order" method="POST" id="form">
                     <h4>Order Our Product</h4>
                     <div class="input-group">
                         <label for="name">Your name</label>
-                        <input id="name" type="text"/>
+                        <input name="name" id="name" type="text"/>
+                    </div>
+                    <div class="input-group">
+                        <label for="wallet-address">Wallet Address</label>
+                        <input name="wallet-address" required="true" id="wallet-address" placeholder="email address OR wallet public address" type="text"/>
                     </div>
                     <div class="input-group">
                         <label for="amount-purchase">Amount To Purchase</label>
-                        <input id="amount-purchase"type="text"/>
+                        <input name="amount-purchase" id="amount-purchase"type="number"/>
                     </div>
                     <div class="input-group">
                         <label for="phonenumber">Your phone number</label>
-                        <input id="phonenumber" type="text" placeholder="08037684536" maxlength="11"/>
+                        <input name="phonenumber" id="phonenumber" type="text" placeholder="08037684536" maxlength="11"/>
                     </div>
-                    <a href="/process-order" id="order-btn">Order Product</a>
-                </div>
+                    <button type="submit" id="order-btn">Order Product</button>
+                </form>
             </div>
         </section>
       

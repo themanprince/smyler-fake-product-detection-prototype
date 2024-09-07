@@ -80,17 +80,17 @@
 	border: none;
 	padding-inline: 1rem;
 	padding-block: .2rem;
-	color: var(--white)
+	color: var(--white);
+	text-decoration: none;
 }
 
 
 #modal-footer {
-	color: rgba(0,0,0,.56);
-	font-size: .6rem;
+	color: rgba(0,0,0,.9);
+	font-size: .75rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	text-decoration: none;
 }
 
 #modal-footer > button {

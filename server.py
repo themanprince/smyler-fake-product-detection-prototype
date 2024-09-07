@@ -13,7 +13,7 @@ def home():
 
 
 
-@app.route("/process-order", methods=["GET"])
+@app.route("/process-order", methods=["POST"])
 def process_order():
     id = str(uuid.uuid4())
     store.storeID(id)
