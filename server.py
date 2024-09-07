@@ -22,8 +22,7 @@ def process_order():
     
     store.store(id=order_id, NFT_id=NFT_for_this_order, user_wallet_address = user_wallet_address)
     print(f"in /process-order, id is {order_id}, NFT_id is {NFT_for_this_order}")
-    link = f"localhost:5000/verify?id={order_id}"
-    return render_template("barcode.html", link=link)
+    return render_template("barcode.html", id=order_id)
 
 
 @app.route("/verify", methods=["GET"])
@@ -42,3 +41,12 @@ def verify():
  
     
     return render_template("output.html", real=is_authentic)
+ 
+   
+@app.route("/scan", methods=["GET"])
+def scan():
+    return render_template("scan-page.html")
+    
+
+if __name__ == "__main__":
+    app.run()
