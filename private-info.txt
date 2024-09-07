@@ -1,0 +1,4 @@
+{
+    "chain":"polygon-amoy",
+    "publicKey":"0x980c727CF6D93b7ab93c1041e4E90a7F62F8FC22"
+}

@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request
 import uuid
 from StorageHandler import StorageHandler
+from NFTHandler import NFTHandler
 
 
 app = Flask(__name__)
@@ -15,10 +16,13 @@ def home():
 
 @app.route("/process-order", methods=["POST"])
 def process_order():
-    id = str(uuid.uuid4())
-    store.storeID(id)
-    print(f"in /process-order, id is {id}")
-    link = f"localhost:5000/verify?id={id}"
+    order_id = str(uuid.uuid4())
+    user_wallet_address = request.form["wallet-address"]
+    NFT_for_this_order = NFTHandler.mintToken(order_id)
+    
+    store.store(id=order_id, NFT_id=NFT_for_this_order, user_wallet_address = user_wallet_address)
+    print(f"in /process-order, id is {order_id}, NFT_id is {NFT_for_this_order}")
+    link = f"localhost:5000/verify?id={order_id}"
     return render_template("barcode.html", link=link)
 
 
@@ -30,10 +34,11 @@ def verify():
     print(f"in /verify route, exists is {exists}")
     used = store.is_used(id)
     
-    if not used:
-        store.markAsUsed(id)
-    
     is_authentic = exists and not used
-    
+   
+    if is_authentic:
+        NFTHandler.transferToken() #this is only a prototype and this method has not been implemented
+        store.markAsUsed(id)
+ 
     
     return render_template("output.html", real=is_authentic)

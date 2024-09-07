@@ -2,12 +2,12 @@ class StorageHandler:
     def __init__(self):
         self.__store = [] #for now
     
-    def storeID(self, id):
-        self.__store.append({"id": id, "is_used": False})
+    def store(self, id, NFT_id, user_wallet_address):
+        self.__store.append({"id": id, "NFT_id": NFT_id, "user_wallet_id": user_wallet_address, "is_used": False})
     
     def exists_in_store(self, id):
         items_with_id = [item for item in self.__store if item["id"] == id]
-        print(f"id to search for is {id}")
+        print(f"in StorageHandler.exists_in_store, id to search for is {id}")
         print(f"self.__store is {self.__store}")
         return len(items_with_id) > 0
     
