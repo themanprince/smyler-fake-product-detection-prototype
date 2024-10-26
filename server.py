@@ -21,7 +21,6 @@ def process_order():
     NFT_for_this_order = NFTHandler.mintToken(order_id)
     
     store.store(id=order_id, NFT_id=NFT_for_this_order, user_wallet_address = user_wallet_address)
-    print(f"in /process-order, id is {order_id}, NFT_id is {NFT_for_this_order}")
     return render_template("barcode.html", id=order_id)
 
 
